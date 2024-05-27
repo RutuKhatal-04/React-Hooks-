@@ -1,0 +1,78 @@
+Hooks are new features addition in React version 16.8 which allows you yo use React features without writing a class.
+EX. State of component
+Hooks dont work inside classes
+
+Why Hooks?
+Reason 1:- 
+We will have to understand how this keyword work in js 
+Remeber to bind event handlers in class component
+Classes dont minify very well and make hot reloading very unreliable
+Reason 2:-
+There is no particular way to reuse stateful component logic
+HOC and render props patterns do addredd this problem
+Makes the code harder to follow
+There is need to share stateful logic in better way
+Reason 3:-
+Create component for complex scenarios such a data fetching and subscribing to events 
+Realted code is not organized in one place
+Data fetching :- In componentDidMount and componentDidUpdate
+Event Listener - In componentDidMount and componentWillUnmount
+canonot break component into smaller ones
+
+
+
+/*********************************************************************/
+useState:-> The useState hooks lets u add state to the functional components
+In class state is always an object 
+with useState hook the state doesnt have to be an object 
+It return an array with 2 elements
+The first element is the current value of state and second element is a state setter functional
+New state value depends on the previous state value ? You can pass a fucntion to setter function
+When dealing with object arrays , always make sure to spread your state variable and then call the setter function
+
+
+useEffect:-> The Effect hooks lets you perform side effect in functional component
+It is a close replacement for componentDidMount,componentDidUpdate,componentWillUnmount
+
+
+Context => Context provides a way to pass data through the component tree without having to pass props down manuallly at every level 
+Example in ComponentE
+
+
+
+useReducer => useReducer is a hoook that is used for state management 
+Is is alternative to useState
+
+diff betwn reduce and useReducer
+1) reduce -> array.reduce(reducer,initialValue)
+useReducer->useReducer(reducer,initialState)
+
+2) reduce->singleValue= reducer(accumulator,itemValue)
+useReducer -> newState = reducer(currentState,action)
+
+3)reduce -> reduce methods return single value
+useReducer -> useReducer return a pair of values , [newState,dispatch]
+
+
+If we want to share state between component (to work with global state)
+and useReducer is used for local state management 
+then how to work with global state management 
+by using "useReducer with useContext"
+
+
+useCallback Hook ->
+WHAT?
+ useCallback hook that will return a memooized version of the callback function that only changes if one of the dependencies has changed
+WHY?
+ It is useful when passing callbacks to optimized child components that rely on reference equality to prevent unnecessary renders
+
+
+ useMemo hook
+ useRef hook 
+
+
+ Custom Hook->A custom hook is basically a js function whose name starts with use .
+ A custom hook can also call other Hook if required
+
+ WHY?
+ share logic- alternative to HOC and render props
